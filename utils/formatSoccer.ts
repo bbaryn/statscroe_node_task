@@ -1,4 +1,4 @@
-import { Matches } from "../types";
+import { Matches } from "types";
 
 export const formatScore = (match: Matches) => {
   switch (match.sport) {
