@@ -2,21 +2,20 @@ import { matches } from "./data/matches";
 import { formatScore } from "./utils/formatSoccer";
 import { makeEventName } from "./utils/makeEventName";
 
-let matchesParsed = [];
+const matchesParsed = matches
+  .map((match) => {
+    const name = makeEventName(match);
+    const score = formatScore(match);
 
-for (var i = 0; i < matches.length; i++) {
-  const name = makeEventName(matches[i]);
-  const score = formatScore(matches[i]);
-
-  if (
-    name !== "Exception: invalid sport" &&
-    score !== "Exception: invalid sport"
-  ) {
-    matchesParsed.push({
+    return {
       name,
       score,
-    });
-  }
-}
+    };
+  })
+  .filter(
+    ({ name, score }) =>
+      name !== "Exception: invalid sport" &&
+      score !== "Exception: invalid sport"
+  );
 
 console.log(matchesParsed);
