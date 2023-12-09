@@ -1,4 +1,4 @@
-# statscroe_node_task
+# statscrore_node_task
 
 Steps needed to run appliaction (you could use npm/yarn instead):
 
